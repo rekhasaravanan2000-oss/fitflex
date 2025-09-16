@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FitFlex - Unleash Your Inner Fitness Wizard</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        />
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2>FitFlex</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#exercises" class="nav-link">Exercises</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#equipment" class="nav-link">Equipment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pricing" class="nav-link">Premium</a>
+                    </li>
+                    <li class="nav-item">
+                        <button
+                            class="premium-btn"
+                            onclick="showSubscriptionModal()"
+                        >
+                            Get Premium
+                        </button>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Unleash the Inner
+                        <span class="highlight">Fitness</span> Wizard:<br />
+                        Morph Your Bad,
+                        <span class="highlight">Upgrade Your</span><br />
+                        Life Quest!
+                    </h1>
+                    <p class="hero-description">
+                        Transform your fitness journey with personalized
+                        workouts, expert guidance, and premium equipment. Join
+                        thousands who've already upgraded their lives.
+                    </p>
+                    <div class="hero-buttons">
+                        <button
+                            class="btn-primary"
+                            onclick="scrollToSection('exercises')"
+                        >
+                            Start Now
+                        </button>
+                        <button
+                            class="btn-secondary"
+                            onclick="showSubscriptionModal()"
+                        >
+                            Go Premium
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-img-placeholder">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-image">
+                        <div class="about-img-placeholder">
+                            <i class="fas fa-running"></i>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <h2>Embark on a Fitness Odyssey with FitFlex</h2>
+                        <p>
+                            Welcome to FitFlex, where the best of cutting-edge
+                            workout technologies and the timeless principles of
+                            a comprehensive body training methodology converge.
+                            We believe in you to achieve your fitness goals with
+                            our meticulously crafted workout plans, premium
+                            equipment, and expert guidance.
+                        </p>
+                        <p>
+                            Exercise is a place of self-discovery and
+                            empowerment. Join the movement. Find your rhythm.
+                            Embrace fitness. This is FitFlex, where every step
+                            you take brings you closer to the best version of
+                            yourself.
+                        </p>
+                        <button
+                            class="btn-primary"
+                            onclick="showSubscriptionModal()"
+                        >
+                            Join Premium
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="container">
+                <h2>Search for Your Perfect Workout</h2>
+                <div class="search-container">
+                    <div class="search-filters">
+                        <button class="filter-btn active" data-filter="all">
+                            All
+                        </button>
+                        <button class="filter-btn" data-filter="equipment">
+                            Equipment
+                        </button>
+                        <button class="filter-btn" data-filter="bodyweight">
+                            Bodyweight
+                        </button>
+                    </div>
+                    <div class="search-bar">
+                        <input
+                            type="text"
+                            placeholder="Choose body part"
+                            id="searchInput"
+                        />
+                        <button class="search-btn" onclick="searchExercises()">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="popular-categories">
+                    <h3>Popular Categories</h3>
+                    <div class="category-grid">
+                        <div
+                            class="category-card"
+                            onclick="filterExercises('arms')"
+                        >
+                            <i class="fas fa-dumbbell"></i>
+                            <span>Arms</span>
+                        </div>
+                        <div
+                            class="category-card"
+                            onclick="filterExercises('cardio')"
+                        >
+                            <i class="fas fa-heartbeat"></i>
+                            <span>Cardio</span>
+                        </div>
+                        <div
+                            class="category-card"
+                            onclick="filterExercises('abs')"
+                        >
+                            <i class="fas fa-user"></i>
+                            <span>Abs/Core</span>
+                        </div>
+                        <div
+                            class="category-card"
+                            onclick="filterExercises('chest')"
+                        >
+                            <i class="fas fa-male"></i>
+                            <span>Chest</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exercises Section -->
+        <section id="exercises" class="exercises">
+            <div class="container">
+                <h2>Exercise Categories</h2>
+                <div class="exercise-grid" id="exerciseGrid">
+                    <!-- Exercise cards will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Equipment Store Section -->
+        <section id="equipment" class="equipment-store">
+            <div class="container">
+                <h2>Premium Equipment Store</h2>
+                <p class="section-subtitle">
+                    Upgrade your home gym with professional-grade equipment
+                </p>
+                <div class="equipment-grid" id="equipmentGrid">
+                    <!-- Equipment items will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <h2>Choose Your Fitness Journey</h2>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Free</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">0</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <ul class="features">
+                            <li>
+                                <i class="fas fa-check"></i> Basic workout
+                                access
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i> Limited exercise
+                                library
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i> Community support
+                            </li>
+                            <li>
+                                <i class="fas fa-times"></i> Premium workouts
+                            </li>
+                            <li>
+                                <i class="fas fa-times"></i> Personal trainer
+                                access
+                            </li>
+                        </ul>
+                        <button
+                            class="btn-secondary"
+                            onclick="selectPlan('free')"
+                        >
+                            Get Started
+                        </button>
+                    </div>
+
+                    <div class="pricing-card featured">
+                        <div class="badge">Most Popular</div>
+                        <h3>Premium</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">19</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <ul class="features">
+                            <li>
+                                <i class="fas fa-check"></i> All premium
+                                workouts
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i> Unlimited exercise
+                                library
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i> Personal trainer
+                                access
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i> Custom meal plans
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i> Progress tracking
+                            </li>
+                        </ul>
+                        <button
+                            class="btn-primary"
+                            onclick="selectPlan('premium')"
+                        >
+                            Start Premium
+                        </button>
+                    </div>
+
+                    <div class="pricing-card">
+                        <h3>Elite</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">39</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <ul class="features">
+                            <li>
+                                <i class="fas fa-check"></i> Everything in
+                                Premium
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i> 1-on-1 coaching
+                                sessions
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i> Advanced analytics
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i> Equipment discounts
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i> Priority support
+                            </li>
+                        </ul>
+                        <button
+                            class="btn-primary"
+                            onclick="selectPlan('elite')"
+                        >
+                            Go Elite
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>FitFlex</h3>
+                        <p>
+                            Transform your fitness journey with expert guidance
+                            and premium equipment.
+                        </p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#exercises">Exercises</a></li>
+                            <li><a href="#equipment">Equipment</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                            <li><a href="#privacy">Privacy Policy</a></li>
+                            <li><a href="#terms">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 FitFlex. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Subscription Modal -->
+        <div id="subscriptionModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeSubscriptionModal()"
+                    >&times;</span
+                >
+                <h2>Choose Your Plan</h2>
+                <div class="modal-pricing">
+                    <div class="modal-plan" data-plan="premium">
+                        <h3>Premium - $19/month</h3>
+                        <p>Access to all premium features</p>
+                        <button
+                            class="btn-primary"
+                            onclick="initiatePurchase('premium', 1900)"
+                        >
+                            Subscribe Now
+                        </button>
+                    </div>
+                    <div class="modal-plan" data-plan="elite">
+                        <h3>Elite - $39/month</h3>
+                        <p>Premium + 1-on-1 coaching</p>
+                        <button
+                            class="btn-primary"
+                            onclick="initiatePurchase('elite', 3900)"
+                        >
+                            Subscribe Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Equipment Modal -->
+        <div id="equipmentModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeEquipmentModal()"
+                    >&times;</span
+                >
+                <div id="equipmentDetails">
+                    <!-- Equipment details will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
